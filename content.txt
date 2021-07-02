@@ -1,0 +1,17 @@
+IMC = poids en kg/taille² en m
+size/weight/age/name
+barcode api
+food api => nutriments
+calorie
+
+
+
+https://www.foodrepo.org/ch?locale=fr
+https://wiki.openfoodfacts.org/API/Read/Product
+
+
+name = 1 db
+
+everyday = count total caloris
+
+search = foods 

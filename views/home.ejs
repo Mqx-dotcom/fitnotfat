@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="static/stylesheets/style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+  
+  
+  
+  <title>Get FIT without FAT</title>
+</head>
+<body>
+  
+<button onclick="totheroof()" id="totheroof" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+  
+<header>
+    <nav class="navbar navborder">
+    <div class="logo">LOGO MTFK<a href="#">
+      </a>
+    </div>
+      <ul class="menu">
+        <!-- <li><a href="">Home</a></li> -->
+        <li><a href="https://en.wikipedia.org/wiki/Body_mass_index" target="_blank">B.M.I</a></li>
+        <li><a href="#">Calories needed</a></li>
+        <li><a href="#section2">Calories counter</a></li>
+        <li><a href="#section2">Retrieve Userdata</a></li>
+        
+      </ul>
+
+      <!-- LOGIN TIME MAYBE LATER WHO KNOWS -->
+      <div class="buttons"> 
+        <input type="button" value="Login">
+        <input type="button" value="Register">
+      </div>
+    </nav>
+
+  <div class="imc">
+		<div class="center" style="font-weight: bold;">You have an BMI of : </div>
+      <div class="center" style="color:red;" id="res_imc">Need Values</div>
+  </div>
+
+
+  <div class="top" id="section1">
+      <p style="text-align: center;font-weight: bold">Calculate your calories needed :</p>
+      <!-- <h2>Fill out the form below.</h2> -->
+      <div class="searchfood2">
+        <input type="text" id="profileinput" placeholder="Enter your name">
+        <!-- <input type="button" id="named" value=">"> -->
+      </div>
+    <div class="flex">
+      <label>Female:
+        <input id="female" type="radio" name="gender" onchange="calsPerDay()">
+      </label>
+      <label>Male:
+        <input id="male" type="radio" name="gender" onchange="calsPerDay()" checked>
+      </label>
+    </div>
+      <label>Age:
+        <input id="age" type="number" oninput="calsPerDay()" value="25">
+        years
+      </label>
+      <label>Height in CM:
+        <input id="height" type="number" oninput="calsPerDay()" value="170">
+      </label>
+      <label>Weight in Kg :
+        <input id="weight" type="number" oninput="calsPerDay()" value="70">
+      </label>
+      <label onclick="calsPerDay">
+      <span id="totalCals" class="center"></span>
+      </label>
+
+      <div class="searchfood2">
+        <input type="button" value="save your Profile " id="saveprofile" href="#section2">
+      </div>
+  </div>
+
+</header>
+
+<header>
+<!-- SEARCHING FOOD -->
+<div class="namedhello center" id="namedhello">
+</div>
+
+<div class="searchfood">
+  <input type="text" id="foodinput" placeholder="Search foods">
+  <input type="button" id="search" value="search">
+</div>
+
+
+<!-- FIRST BOX -->
+<div class="contentbox">
+  <div class="text-content glass-container">
+    <h2>Pick your food :</h2> 
+  <br>
+    <div class="foodlistscroll">
+       <ul id="foodlist">
+      </ul>
+    </div>
+    <div class="searchfood">
+      <input type="button" value="Reset list" id="resetfood">
+    </div>
+  </div>
+
+<!-- SECOND BOX -->
+  <div class="text-content glass-container2">
+    <h2>List of the day :</h2>
+    <br>
+    <div class="foodlistscroll">
+    <ul>
+      <div class="foodlistscroll" >
+        <table id="foodlist2">
+          <tr>
+            <th scope="col">Food</th>
+            <th scope="col">serving</th>
+            <th scope="col" id="calrow">cal</th>
+            <th scope="col">prot</th>
+            <th scope="col">carbo</th>
+            <th scope="col">fat</th>
+            <th scope="col">fat sat.</th>
+          </tr>
+        </table>
+      </div>
+    </ul>
+    </div>
+
+    <div class="searchfood">
+    <input type="button" value="reset list" id="resetfood2">
+    <input type="button" value="save your list" id="savefood">
+    </div>
+
+  </div>
+</div>
+
+<div class="resultbox glass-container">
+  <p id="namecheck"></p>
+  <div class="calcompare">
+    <p id="">Cal needed :<p id="calneeded" >0</p></p> 
+    <p>Cal eated :<p id="caleated" >0</p></p> 
+  </div>
+</div>
+
+<div class="rowedbox">
+  <div class="loadresulttbox glass-container">
+    <div class="searchfood">
+      <input type="text" id="profileinputDB" placeholder="Enter your name">
+    </div>
+      <div class="searchfood">
+     <input type="button" value="retrieve data" id="loaddatafromdb">
+      </div>
+  </div>
+
+  <div class="displayresultbox glass-container2">
+    <div class="searchfood">
+      test
+    </div>
+  </div>
+</div>
+
+<div class="bye" id="section2">
+  
+</div>
+
+</header>
+
+<header>
+      zqd
+</header>
+
+
+
+  <script src="static/scripts/index.js"></script>
+</body>
+</html>
